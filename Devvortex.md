@@ -312,7 +312,7 @@ Chequear en el directorio `/var/crash` si hay algún reporte sino crearlo con `a
 `sudo apport-cli -f -P 1620 --save=/var/crash/example.crash`  
 Elegir algún puerto de algún servicio corriendo `ps -faux`  
 
-Abrir el reporte y seleccionar la opción `v`
+Abrir el reporte y seleccionar la opción `v`  
 `sudo apport-cli -c /var/crash/example.crash`
 
 Comandos ejecutados como root
