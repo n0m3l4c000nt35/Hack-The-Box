@@ -227,7 +227,7 @@ password: P4ntherg0t1n5r3c0n##
 ```
 
 ## Reverse shell
-Ruta al archivo `login.php`
+Ruta al archivo `login.php`  
 System -> Templates - Administrator Templates -> Atum Details and Files -> login.php
 
 Agregar el siguiente código al archivo `login.php`  
