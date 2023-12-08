@@ -161,10 +161,13 @@ stty rows 44 columns 184
 
 <br>
 
-`cat user.txt`
+```bash
+ls
+cat user.txt
+```
 
 > [!IMPORTANT]
-> 30b05689ad7d88dbd41638d1945976f1
+> User flag: 30b05689ad7d88dbd41638d1945976f1
 
 <br>
 
@@ -203,7 +206,9 @@ while not password_found:
 su root
 kljh12k3jhaskjh12kjh3
 cd
+ls
 cat root.txt
-94a6c3a4890801e1335907899cd99559
 ```
 
+> [!IMPORTANT]
+> Root flag: 94a6c3a4890801e1335907899cd99559
