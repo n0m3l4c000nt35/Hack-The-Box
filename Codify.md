@@ -1,3 +1,5 @@
+![Codify](https://github.com/n0m3l4c000nt35/Hack-The-Box/assets/149972189/6dbf9ae1-584c-4658-b0a1-fcd2d03e828a)
+
 `nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn <ip-victima> -oG allPorts`
 
 ```bash
@@ -159,10 +161,10 @@ stty rows 44 columns 184
 
 <br>
 
-```bash
-cat user.txt
-30b05689ad7d88dbd41638d1945976f1
-```
+`cat user.txt`
+
+> [!IMPORTANT]
+> 30b05689ad7d88dbd41638d1945976f1
 
 <br>
 
