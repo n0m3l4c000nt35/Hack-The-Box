@@ -177,7 +177,7 @@ wget http://<ip-victima>/<port>/cloudhosting-0.0.1.jar
 `java -jar jd-gui-1.6.6.jar`
 
 application.properties
-```
+
 ```java
 server.address=127.0.0.1
 server.servlet.session.timeout=5m
