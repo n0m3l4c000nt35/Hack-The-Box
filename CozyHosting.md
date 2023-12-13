@@ -238,7 +238,8 @@ cd /home/jose
 cat user.txt
 ```
 
-> [!IMPORTANT] User flag: c07db06d197bee1a21bfdad6494b6519
+> [!IMPORTANT]
+> User flag: c07db06d197bee1a21bfdad6494b6519
 
 ```bash
 sudo -l
@@ -258,5 +259,6 @@ cd /root
 cat root.txt
 ```
 
-> [!IMPORTANT] Root flag: 6b8ccb9c26ebf11122a9e82977301258
+> [!IMPORTANT]
+> Root flag: 6b8ccb9c26ebf11122a9e82977301258
 
