@@ -1,4 +1,7 @@
+![Analytics](https://github.com/n0m3l4c000nt35/Hack-The-Box/assets/149972189/f4eb7212-b431-473c-98ee-d8a80af39a64)
+
 # Introducción
+
 ---
 La máquina Analytics de Hack The Box se centra en la plataforma Metabase, presenta una combinación de vulnerabilidades que van desde una RCE pre-autenticación hasta una escalada de privilegios a través de una vulnerabilidad en el kernel.
 Este write-up detalla el proceso de enumeración, explotación y escalada de privilegios para obtener acceso al usuario y obtener el control total del sistema.
@@ -50,7 +53,7 @@ Nmap done: 1 IP address (1 host up) scanned in 12.80 seconds
 ```
 
 En la fase inicial, se realizó una extensa enumeración de puertos utilizando [Nmap](https://nmap.org/).
-La dirección IP se resolvió mediante la configuración del archivo `/etc/hosts`:
+La dirección IP se resolvió mediante la configuración del archivo `/etc/hosts`:  
 `echo "<target-ip>  analytical.htb data.analytical.htb" >> /etc/hosts`
 
 Se identificaron los servicios en los puertos 22 y 80, este último redirigiendo a `http://data.analytical.htb`. Este redireccionamiento es crucial para la posterior explotación de Metabase.
