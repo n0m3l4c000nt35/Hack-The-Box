@@ -198,7 +198,7 @@ SsGN1FbK/meH9QAAAIEArbz8aWansqPtE+6Ye8Nq3G2R1PYhp5yXpxiE89L87NIV
 
 Para acceder al sistema como el usuario root y haciendo uso de la clave encontrada en el gestor de contraseñas se necesita convertir la clave privada.
 
-[https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+[https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)  
 Seguir las instrucciones del README.md para instalar la última versión de `putty`
 
 ```bash
