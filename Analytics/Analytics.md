@@ -152,9 +152,15 @@ An4lytics_ds20223#
 ```
 
 Se estableció una conexión SSH exitosa, otorgando acceso al sistema como el usuario `metalytics`.
+
 ## User Flag
 ---
+
 Una vez dentro del sistema, se ubicó la user flag en el directorio `/home/metalytics`.
+
+> [!IMPORTANT]
+> `cat /home/metalytics/user.txt`
+
 # Escalada de privilegios
 ---
 La fase de escalada de privilegios aprovechó una vulnerabilidad en el kernel [CVE-2023-2640 Detail](https://nvd.nist.gov/vuln/detail/CVE-2023-2640) detectado con el comando `uname -rs`.
