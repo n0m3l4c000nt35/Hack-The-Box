@@ -182,3 +182,6 @@ fi
 ## Root Flag
 ---
 Con privilegios de root, se localizó la root flag en el directorio `/root`.
+
+> [!IMPORTANT]
+> `cat /root/root.txt`
