@@ -129,7 +129,7 @@ Utilizando la herramienta [KeePass 2.X Master Password Dumper](https://github.co
 
 [Setup KeePass 2.X Master Password Dumper](https://github.com/vdohney/keepass-password-dumper?tab=readme-ov-file#setup)
 
-Para configurar el KeePass se necesitó instalar lo siguiente:
+Para configurar el KeePass se necesitó instalar lo siguiente:  
 [Download .NET For Windows](https://dotnet.microsoft.com/en-us/download)  
 [Descargar .NET 7.0 Runtime](https://dotnet.microsoft.com/es-es/download/dotnet/7.0/runtime?cid=getdotnetcore&os=windows&arch=x64)
 
