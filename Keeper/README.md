@@ -160,7 +160,7 @@ Combined: ●{ø, Ï, ,, l, `, -, ', ], §, A, I, :, =, _, c, M}dgrød med flød
 ```
 
 Tras una búsqueda en Google de la posible contraseña encontrada se determinó que la contraseña está escrita en idioma danés.
-[Resultados de la búsqueda en Google de M}dgrød med fløde](https://www.google.com/search?q=M%7Ddgr%C3%B8d+med+fl%C3%B8de&rlz=1C1CHBF_esAR1082AR1082&oq=M%7Ddgr%C3%B8d+med+fl%C3%B8de&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg4IARAAGAoYQxiABBiKBdIBBzc4MWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8)
+[Resultados de la búsqueda en Google de M}dgrød med fløde](https://www.google.com/search?q=M%7Ddgr%C3%B8d+med+fl%C3%B8de&rlz=1C1CHBF_esAR1082AR1082&oq=M%7Ddgr%C3%B8d+med+fl%C3%B8de&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7Mg4IARAAGAoYQxiABBiKBdIBBzc4MWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8)  
 `rødgrød med fløde`
 
 Se descargó [KeePassXC](https://keepassxc.org/) y se utilizó para abrir el archivo `passcodes.kdbx` con la contraseña obtenida.
